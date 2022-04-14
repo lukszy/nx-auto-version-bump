@@ -6,6 +6,6 @@ import { CommonModule } from '@angular/common';
 })
 export class PublishableLibModule {
   onClick() {
-    console.log('click');
+    console.log('click a button');
   }
 }
