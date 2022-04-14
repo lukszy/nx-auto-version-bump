@@ -8,5 +8,4 @@ echo $START_LINE
 
 if [[ "$START_LINE" =~ $PATTERN ]]; then
   yarn nx affected --target=version --all
-  exit 0
 fi
