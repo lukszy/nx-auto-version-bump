@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "lib-pub": "apps/lib-pub",
+    "lib-pub-e2e": "apps/lib-pub-e2e"
+  }
+}

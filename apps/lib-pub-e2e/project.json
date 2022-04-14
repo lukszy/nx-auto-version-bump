@@ -1,0 +1,28 @@
+{
+  "root": "apps/lib-pub-e2e",
+  "sourceRoot": "apps/lib-pub-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/lib-pub-e2e/cypress.json",
+        "devServerTarget": "lib-pub:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "lib-pub:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/lib-pub-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["lib-pub"]
+}
