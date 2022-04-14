@@ -1,7 +1,41 @@
 {
   "version": 2,
   "projects": {
+    "awesome-lib": {
+      "root": "libs/awesome-lib",
+      "sourceRoot": "libs/awesome-lib/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/awesome-lib",
+            "main": "libs/awesome-lib/src/index.ts",
+            "tsConfig": "libs/awesome-lib/tsconfig.lib.json",
+            "assets": ["libs/awesome-lib/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/awesome-lib/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/awesome-lib"],
+          "options": {
+            "jestConfig": "libs/awesome-lib/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
     "lib-pub": "apps/lib-pub",
-    "lib-pub-e2e": "apps/lib-pub-e2e"
+    "lib-pub-e2e": "apps/lib-pub-e2e",
+    "publishable-lib": "libs/publishable-lib"
   }
 }
