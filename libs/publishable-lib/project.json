@@ -41,7 +41,8 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "commands": [
-          "yarn version --cwd libs/publishable-lib --patch --no-commit-hooks"
+          "yarn version --cwd libs/publishable-lib --patch --no-git-tag-version --no-commit-hooks",
+          "git add package.json"
         ]
       }
     },
