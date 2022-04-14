@@ -1,0 +1,59 @@
+{
+  "projectType": "library",
+  "root": "libs/publishable-lib",
+  "sourceRoot": "libs/publishable-lib/src",
+  "prefix": "lib-pub-poc",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/publishable-lib"],
+      "options": {
+        "project": "libs/publishable-lib/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/publishable-lib/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/publishable-lib/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "yarn nx build publishable-lib",
+          "yarn publish dist/libs/publishable-lib"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/publishable-lib"],
+      "options": {
+        "jestConfig": "libs/publishable-lib/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "version": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "yarn version --cwd libs/publishable-lib --patch --no-git-tag-version --no-commit-hooks"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/publishable-lib/src/**/*.ts",
+          "libs/publishable-lib/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
