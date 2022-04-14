@@ -24,6 +24,11 @@
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "ls -l"
+    }
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.3.0",
     "@angular-eslint/eslint-plugin": "~13.1.0",
