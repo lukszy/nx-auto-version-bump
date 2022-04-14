@@ -4,4 +4,8 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   imports: [CommonModule],
 })
-export class PublishableLibModule {}
+export class PublishableLibModule {
+  onClick() {
+    console.log('click');
+  }
+}
